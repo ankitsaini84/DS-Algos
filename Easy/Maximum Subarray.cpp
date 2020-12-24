@@ -14,6 +14,13 @@
 class Solution {
 public:
     int maxSubArray(std::vector<int>& nums) {
+        // Observations : Unless, all the numbers in the array are negative,
+        // series will ALWAYS start with a +ive number in the array.
+        // Algo ~
+        // 1. If the sum on left is -ive & current number is +ive - reject sum so far.
+        // 2. Keep adding the sum.
+        // 3. If, sum > highest sum, make sum as new highest sum.
+        // 4. Also, consider current number to be of highest sum.
         int length = nums.size();
         int sum {nums[0]};
         int hsum {nums[0]};
