@@ -19,8 +19,9 @@
 
 class Solution {
 public:
-    int findKthLargest(std::vector<int>& nums, int k) {
-        std::priority_queue<int, std::vector<int>, std::less<int>> pqueue;
+    // Naive approach
+    int findKthLargest_naive(std::vector<int>& nums, int k) {
+        std::priority_queue<int, std::vector<int>, std::less<int>> pqueue;  // less -> LARGEST element @ Top
         
         // insert all elements in priority queue
         for(const auto& i : nums) {
@@ -35,6 +36,25 @@ public:
         }
 
         return result;
+    }
+
+    // Better approach
+    int findKthLargest(std::vector<int>& nums, int k) {
+        std::priority_queue<int, std::vector<int>, std::greater<int>> pqueue;
+        
+        // Maintain a priority queue to keep kth largest elements only.
+        // NOTE: Above Priority Queue will always have LEAST element @ Top.
+        for(const auto& i : nums) {
+            if(pqueue.size() < k) {
+                pqueue.push(i);
+            } else if(pqueue.top() < i) {
+                // discard least of largest elements to make room for another larger element. 
+                pqueue.pop();
+                pqueue.push(i);
+            }
+        }
+
+        return pqueue.top();    // Least of largest k elements is the answer.
     }
 };
 
