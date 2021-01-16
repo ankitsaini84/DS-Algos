@@ -33,19 +33,17 @@ public:
                 }
                 nums[l] = nums[i];
 
-
                 r = l+1;
                 if(r <= n) {
                     nums[r] = nums[i] + nums[i+1];
 
                     // 'l' will never be the max value as it is only being copied from
-                    // previous values. Only 'r' value is a contender of being 'max'.
+                    // previous values. Only 'r' value is the contender of being 'max'.
                     if(max < nums[r]) {
                         max = nums[r];
                     }
                 }
 
-                std::cout << i << ' ' << nums[i] << ' ' << max << '\n';
                 ++i;
             }
 
