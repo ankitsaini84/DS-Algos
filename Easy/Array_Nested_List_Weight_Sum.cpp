@@ -69,23 +69,30 @@ public:
     int bfs(const std::vector<NestedInteger>& list) {
         std::queue<NestedInteger> q;
 
+        // Add all elements to queue
         for(const NestedInteger& i : list) {
             q.push(i);
         }
 
         int sum     {0};
         int depth   {1};
-        int size    {q.size()};
-        int i       {0};
+        int size    {static_cast<int>(q.size())};
+        int i       {1};
         NestedInteger e;
+
+        // Iterate till queue is NOT empty
         while(!q.empty()) {
+            // To keep track of depth, till the previous elements are not traversed,
+            // keep the depth same. As soon as previously added elements are done
+            // traversing - update 'size' & 'depth'
+            if(i > size) {
+                ++depth;
+                size = static_cast<int>(q.size());
+                i = 1;
+            }
+            
             e = q.front();
             q.pop();
-            if(i >= q.size()) {
-                ++depth;
-                size = q.size();
-            }
-
             if(e.isInteger()) {
                 sum += depth * e.getInteger();
             } else {
