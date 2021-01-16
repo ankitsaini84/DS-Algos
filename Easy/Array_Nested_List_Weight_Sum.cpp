@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <vector>
+#include <queue>
 
  // This is the interface that allows for creating nested lists.
  // You should not implement it, or speculate about its implementation
@@ -51,20 +52,55 @@
 
 class Solution {
 public:
-    void sum(const std::vector<NestedInteger>& list, int d, int& s) {
-        for(const NestedInteger& i : list) {
+    // Solution by DFS (recursion)
+    int dfs(const std::vector<NestedInteger>& list, const int d) {
+        int s{0};
+        for(const auto& i : list) {
             if(i.isInteger()) {
                 s += d * i.getInteger();
             } else {
-                sum(i.getList(), d+1, s);
+                s += dfs(i.getList(), d+1);
             }
         }
+        return s;
     }
     
+    // Solution by BFS (Queue)
+    int bfs(const std::vector<NestedInteger>& list) {
+        std::queue<NestedInteger> q;
+
+        for(const NestedInteger& i : list) {
+            q.push(i);
+        }
+
+        int sum     {0};
+        int depth   {1};
+        int size    {q.size()};
+        int i       {0};
+        NestedInteger e;
+        while(!q.empty()) {
+            e = q.front();
+            q.pop();
+            if(i >= q.size()) {
+                ++depth;
+                size = q.size();
+            }
+
+            if(e.isInteger()) {
+                sum += depth * e.getInteger();
+            } else {
+                for(const NestedInteger& i : e.getList()) {
+                    q.push(i);
+                }
+            }
+            ++i;
+        }
+        return sum;
+    }
+
     int depthSum(std::vector<NestedInteger>& nestedList) {
-        int s = 0;
-        sum(nestedList, 1, s);
-        return s;
+        return dfs(nestedList, 1);
+        return bfs(nestedList);
     }
 };
 
