@@ -19,7 +19,7 @@
 
 class Solution {
 public:
-    // Naive approach
+    // Naive approach - O(n log n)
     int findKthLargest_naive(std::vector<int>& nums, int k) {
         std::priority_queue<int, std::vector<int>, std::less<int>> pqueue;  // less -> LARGEST element @ Top
         
@@ -38,7 +38,7 @@ public:
         return result;
     }
 
-    // Better approach
+    // Better approach - O(n log k)
     int findKthLargest(std::vector<int>& nums, int k) {
         std::priority_queue<int, std::vector<int>, std::greater<int>> pqueue;
         
