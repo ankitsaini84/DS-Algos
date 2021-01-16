@@ -51,8 +51,8 @@
 
 class Solution {
 public:
-    void sum(std::vector<NestedInteger>& list, int d, int& s) {
-        for(NestedInteger i : list) {
+    void sum(const std::vector<NestedInteger>& list, int d, int& s) {
+        for(const NestedInteger& i : list) {
             if(i.isInteger()) {
                 s += d * i.getInteger();
             } else {
