@@ -1,10 +1,10 @@
 /**
  * Given a string s, remove the vowels 'a', 'e', 'i', 'o', and 'u' from it,
  * and return the new string.
- * Example 1:
+ * EXAMPLE 1:
  * Input: s = "codingisfunandfuniscoding"
  * Output: "cdngsfnndfnscdng"
- * Example 2:
+ * EXAMPLE 2:
  * Input: s = "aeiou"
  * Output: "" 
  */
