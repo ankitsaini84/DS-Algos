@@ -52,7 +52,15 @@
 
 class Solution {
 public:
-    // Solution by DFS (recursion)
+    /**
+     * Solution by DFS (recursion)
+     * Algo ~
+     * 1. Iterate over all the elements.
+     * 2. Find if the element is an Integer or not.
+     * 3. If yes, sum it up after mutliplying it by depth.
+     * 4. If no, iterate over till we reach the Integer element & keep adding to depth.
+     * 5. Each iteration will return sum of elements at that depth multiplied by depth.
+     */
     int dfs(const std::vector<NestedInteger>& list, const int d) {
         int s{0};
         for(const auto& i : list) {
@@ -65,7 +73,16 @@ public:
         return s;
     }
     
-    // Solution by BFS (Queue)
+    /**
+     * Solution by BFS (Queue)
+     * Algo ~
+     * 1. Iterate & add elements to a Queue.
+     * 2. Start iterating quene until it's empty. Keep track of current size of Queue.
+     * 3. If element if Integer, multiply it by depth & add it to sum.
+     * 4. Else, Get list of elements in the queue and push them to Queue.
+     * 5. When, we have reached 'size' of the Queue - Increment depth.
+     * 6. Keep reteating same untill Queue is empty.
+     */
     int bfs(const std::vector<NestedInteger>& list) {
         std::queue<NestedInteger> q;
 
