@@ -17,6 +17,14 @@
 
 class Solution {
 public:
+/**
+ * Algo ~
+ * 1. Start Sorting from End, rather than from Beginning.
+ * 2. Keep copying greater of 2 values @ the end of the 1st (resultant) array;
+ * unitl we have iterated all the elements of either of the arrays.
+ * 3. Copy all remaining elements in 2nd array to resultant array. Since, all
+ * the elements were already sorted, we can copy them as is.
+ */
     void merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) {
         int x {m - 1};
         int y {n - 1};
