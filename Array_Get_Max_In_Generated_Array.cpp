@@ -27,16 +27,16 @@ public:
 
             while(i <= n) {
                 l = 2*i;
-                if(l > n) {
+                if(l > n) { // Since l is 2 times i, break - when i becomes larger than n
                     break;
                 }
                 nums[l] = nums[i];
 
                 r = l+1;
-                if(r <= n) {
+                if(r <= n) {    // Only consider r if it's smaller than n
                     nums[r] = nums[i] + nums[i+1];
 
-                    // 'l' will never be the max value as it is only being copied from
+                    // NOTE: 'l' will never be the max value as it is only being copied from
                     // previous values. Only 'r' value is the contender of being 'max'.
                     if(max < nums[r]) {
                         max = nums[r];
