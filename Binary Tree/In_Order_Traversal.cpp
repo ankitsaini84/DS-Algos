@@ -63,7 +63,7 @@ public:
                 continue;   // Continue doing so, untill we reach leftest leaf node.
             }
 
-            // When we have reached leftmost leaf node, pop the stack top & make it part of solution
+            // When we have reached the leaf node, pop the stack top & make it part of solution
             stack.pop();
             r.push_back(node->val);
 
