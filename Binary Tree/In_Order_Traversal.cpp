@@ -64,8 +64,8 @@ public:
             }
 
             // When we have reached left leaf node, pop the stack top & make it part of solution
-            node = stack.top();
             stack.pop();
+            r.push_back(node->val);
 
             // If node has right child node, push it to stack & break it's link to parent (node)
             if(node->right) {
