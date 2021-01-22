@@ -38,12 +38,11 @@ public:
     std::vector<int> preorderTraversal(TreeNode* root) {
         if(root == nullptr) return r;   // break condition
 
-        r.push_back(root->val);
+        r.push_back(root->val);         // Read Root
+        preorderTraversal(root->left);  // Traverse Left
+        preorderTraversal(root->right); // Traverse Right
 
-        if(root->left) preorderTraversal(root->left);
-        if(root->right) preorderTraversal(root->right);
-
-        return r;   // return final solution
+        return r;                       // return final solution
     }
 
     // Stack Implementation
