@@ -1,7 +1,7 @@
 /**
  * IN ORDER TRAVERSAL - Left - Root - Right
  * 
- * Given the root of a binary tree, return the preorder 
+ * Given the root of a binary tree, return the inorder 
  * traversal of its nodes' values.
  * 
  * EXAMPLE:
