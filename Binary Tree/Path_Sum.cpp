@@ -38,12 +38,13 @@ struct TreeNode {
 class Solution {
 public:
 
+    // Recursive Solution
     bool hasPathSum(TreeNode* node, int targetSum, int prevSum) {
         if(!node) return false;
 
         // When @ leaf node, check if sum equals targetSum.
         // If yes, return 'true'
-        if(!node->left && !node->right &&
+        if((!node->left && !node->right) &&
         (prevSum + node->val == targetSum)) {
             return true;
         }
@@ -55,6 +56,30 @@ public:
         // Return 
         return false;
     }
+
+    // TODO: Iterative Solution
+    /*bool hasPathSum(TreeNode* node, int targetSum) {
+        int sum {0};
+        TreeNode* node {nullptr};
+        std::stack<int> stack {};
+        stack.push(node);
+        while(!stack.empty()) {
+            node = stack.top();
+            stack.pop();
+
+            if(!node->left && !node->right &&
+            targetSum - node->val == 0) {
+                return true;
+            }
+
+            if(node->left) {
+                stack.push(node->left);
+            }
+            if(node->right) {
+                stack.push(node->right);
+            }
+        }
+    }*/
 
     bool hasPathSum(TreeNode* root, int targetSum) {
        return hasPathSum(root, targetSum, 0);
