@@ -65,20 +65,22 @@ class Solution {
         stack.push(root);
         while(!stack.empty()) {
             node = stack.top();
-
+            
+            // If node has a left child, push it to stack & break it's link to parent (node)
             if(node->left) {
                 stack.push(node->left);
                 node->left = nullptr;
                 continue;
             }
 
+            // If node has right child node, push it to stack & break it's link to parent (node)
             if(node->right) {
                 stack.push(node->right);
                 node->right = nullptr;
                 continue;
             }
 
-            // node = stack.top();
+            // When we have reached the leaf node, pop the stack top & make it part of solution
             stack.pop();
             r.push_back(node->val);
         }
