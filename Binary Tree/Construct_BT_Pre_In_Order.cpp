@@ -35,7 +35,7 @@ struct TreeNode {
  */
 class Solution {
     int r {0};  // For preorder traversal, 1st element is the Root of the tree.
-    
+
     TreeNode* helper(std::vector<int>& inorder, int s, int e, std::vector<int>& preorder) {
         if(s > e) return nullptr;
         
@@ -58,3 +58,12 @@ public:
         return helper(inorder, 0, static_cast<int>(inorder.size()) - 1, preorder);
     }
 };
+
+int main() {
+    std::vector<int> inorder {9, 3, 15, 20, 7};
+    std::vector<int> preorder {3, 9, 20, 15, 7};
+
+    Solution s;
+    TreeNode* root = s.buildTree(preorder, inorder);
+    return 0;
+}
