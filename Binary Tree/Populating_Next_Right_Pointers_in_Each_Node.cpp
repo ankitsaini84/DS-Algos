@@ -55,18 +55,22 @@ public:
         if(!root) return nullptr;
 
         std::queue<Node*> queue {};
+        // For first level, root is the only element.
+        // Push it to the queue.
         queue.push(root);
-        Node* node {nullptr};
+
+        // Find the number of element at current level.
         int size {static_cast<int>(queue.size())};
 
+        Node* node {nullptr};
         // Iterate till the queue is not empty
         while(!queue.empty()) {
-            // Take out the topmost element from the queue
+            // Take out the frontmost element from the queue
             node = queue.front();
             queue.pop();
-            --size;
+            --size; // Deceremnt the no. of remianing elements in the queue
 
-            // Add node's left & right nodes.
+            // Add node's left & right children.
             if(node->left) {
                 queue.push(node->left);
             }
@@ -74,8 +78,8 @@ public:
                 queue.push(node->right);
             }
 
-            // If we have reached the end of the size (of the level) 
-            // - update size for new level
+            // If we have queued children of all the nodes @ this level 
+            // - update size for next level (no. of children added - next level)
             // Else, join the node to its successor in queue.
             if(size == 0) {
                 size = static_cast<int>(queue.size());
