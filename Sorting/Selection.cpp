@@ -47,4 +47,6 @@ int main() {
     for(auto element : arr) {
         std::cout << element << " ";
     }
+    
+    return 0;
 }
