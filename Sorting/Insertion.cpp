@@ -6,7 +6,8 @@
  * correct places.
  * 
  * IMP:
- * BEST sorting technique iff there are very few (around 15) elements to sort.
+ * BEST sorting technique iff there are very few (around 10 ~ 15) elements to sort &
+ * an implace sorting technique is required which is also stable at the same time.
  * 
  * Time Complexity ~ O(n^2)
  * Space Complexity ~ O(n) - Implace sorting
