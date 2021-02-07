@@ -57,8 +57,14 @@ public:
             // It should be nearest to the squirrel but farthest
             // from the tree.
             // Thus,
+            // cost saving for the nut if squirrel picks it 1st =
+            // distance covered if squirrel picks it from tree & takes it back MINUS
+            // squirrel picks the nut + takes it to tree.
+            // => 2DT - (DT - DS) => DT - DS
+            // To maximize the saving, find the maximum saving cost
             maxCost = maximum(maxCost, distance(tree, nut) - distance(squirrel, nut));
         }
+        // Now, just deduct that saving from total distance.
         totalDistance -= maxCost;
         return totalDistance;
     }
