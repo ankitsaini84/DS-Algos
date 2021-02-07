@@ -15,7 +15,7 @@
  * Time Complexity ~ O(n^2)
  * Space Complexity ~ O(n) - Implace sorting
  * 
- * NOTE: It's a STABLE SORT.
+ * NOTE: It's NOT a STABLE SORT.
  */
 
 void sort(std::vector<int> &arr) {
