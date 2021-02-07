@@ -31,15 +31,13 @@ void sort(std::vector<int> &arr) {
         t = arr[w];
         // start chekcing the ideal poistion for the element from (wall - 1) till start.
         for(int e {w-1}; e >= 0; --e) {
-            // Unless we can find the element smaller than the element @ wall - 
-            // keep pushing all the elements to right-side & put wall-element at eth pos.
+            // Until we can find the element smaller than the element @ wall - 
+            // keep pushing all the elements to right-side & pushing wall-element to the 
+            // left-side.
             if(t < arr[e]) {
                 arr[e+1] = arr[e];
                 arr[e] = t;
-            } else {    
-            // if an element is found which is smaller than the element @ wall -
-            // just put wall-element @ right-side of the element & break the loop.
-                arr[e+1] = t;
+            } else {
                 break;
             }
         }
