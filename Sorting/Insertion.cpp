@@ -46,7 +46,7 @@ void sort(std::vector<int> &arr) {
 }
 
 int main() {
-        std::vector<int> arr {74, 32, 89, 55, 21, 64};
+    std::vector<int> arr {74, 32, 89, 55, 21, 64};
 
     sort(arr);
 
