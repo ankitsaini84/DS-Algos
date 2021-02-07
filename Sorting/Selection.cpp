@@ -2,6 +2,11 @@
 #include <vector>
 
 /**
+ * NOTE:
+ * Idea behind SELETION sort is to find the minimum element & bring it
+ * to the begginning of the array. Then, find next smallest & keep
+ * repeating it until all the elements are sorted.
+ * 
  * IMP:
  * BEST sorting technique iff SWAPS are VERY COSTLY,
  * as, we can only make 'n' swaps at max - 1 for 
