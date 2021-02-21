@@ -33,7 +33,7 @@ public:
             // push the sorted string to the map (a collector of unique strings) along
             // with the unique grpId.
             // Idea is, if the map accepts the string - it also stores its unique grpId.
-            // Else, if it does not, it returns the grpId to which previous insertions belong to.
+            // Else, it returns the grpId to which previous insertions belong to.
             ret = uniqueGroups.emplace(sortedStr, grpId);
             
             if(ret.second == false) {   // group already exists
