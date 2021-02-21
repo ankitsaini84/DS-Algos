@@ -41,7 +41,7 @@ public:
                 answer[ret.first->second].push_back(strs[i]);
             } else {
                 // As answer is vector<vector>, we need to insert an empty vector first to
-                // be inserted at the poisition (linked list) and then make the entry in it.
+                // be inserted at the poisition and then make the entry in it.
                 answer.push_back({});
                 // insert new unique group with new(next) 'grpId'.
                 answer[grpId].push_back(strs[i]);
