@@ -155,5 +155,15 @@ public:
  */
 
 int main() {
+    LRUCache* obj = new LRUCache(3);
+    std::cout << "Get 1 : "  << obj->get(1) << "\n";
+    obj->put(1, 2);
+    obj->put(2, 3);
+    obj->put(3, 4);
+    obj->put(1, 5);
+    obj->put(5, 6);
+    std::cout << "Get 1 : "  << obj->get(1) << "\n";
+    std::cout << "Get 2 : "  << obj->get(2) << "\n";
+    std::cout << "Get 5 : "  << obj->get(5) << "\n";
     return 0;
 }
